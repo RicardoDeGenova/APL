@@ -2,6 +2,7 @@
 using APL.Application.TodoLists.Commands.DeleteTodoList;
 using APL.Application.TodoLists.Commands.UpdateTodoList;
 using APL.Application.TodoLists.Queries.GetTodos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace APL.Web.Endpoints;
 
@@ -17,6 +18,7 @@ public class TodoLists : EndpointGroupBase
             .MapDelete(DeleteTodoList, "{id}");
     }
 
+    [Route("test")]
     public Task<TodosVm> GetTodoLists(ISender sender)
     {
         return  sender.Send(new GetTodosQuery());

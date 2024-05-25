@@ -1,4 +1,5 @@
 ﻿using APL.Application.WeatherForecasts.Queries.GetWeatherForecasts;
+using Microsoft.AspNetCore.Mvc;
 
 namespace APL.Web.Endpoints;
 
@@ -11,6 +12,7 @@ public class WeatherForecasts : EndpointGroupBase
             .MapGet(GetWeatherForecasts);
     }
 
+    [Route("test2")]
     public async Task<IEnumerable<WeatherForecast>> GetWeatherForecasts(ISender sender)
     {
         return await sender.Send(new GetWeatherForecastsQuery());
